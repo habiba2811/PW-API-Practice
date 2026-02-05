@@ -1,5 +1,10 @@
 # PW-API-Practice
 
+![API](https://img.shields.io/badge/API-Testing-9cf)
+![Playwright](https://img.shields.io/badge/Playwright-Testing-brightgreen)
+![TypeScript](https://img.shields.io/badge/TypeScript-Language-blue)
+![Node.js](https://img.shields.io/badge/Node.js-Runtime-green)
+
 Playwright API testing practice project. The suite logs in before each test, intercepts the `api/tags` call with mocked data from `test-data/tags.json`, and exercises UI + API workflows in the Conduit app.
 
 **Tech**
