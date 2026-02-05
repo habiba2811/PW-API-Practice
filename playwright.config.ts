@@ -5,11 +5,11 @@ export default defineConfig({
   // use: {
   //   trace: 'on-first-retry',
   // },
-   use: {
-    launchOptions: {
-      slowMo: 2000,
-    },
-  },
+  //  use: {
+  //   launchOptions: {
+  //     slowMo: 000,
+  //   },
+  // },
 
   projects: [
     {
