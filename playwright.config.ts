@@ -2,6 +2,11 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: '.',
+  use: {
+    extraHTTPHeaders:{
+      'Authorization': `Token ${process.env.ACCESS_TOKEN}`
+    }
+  },
   projects: [
     { name: 'setup', testMatch: '.auth/auth.setup.ts' },
     {
