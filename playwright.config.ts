@@ -1,32 +1,26 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
-  testDir: './tests',
-  // use: {
-  //   trace: 'on-first-retry',
-  // },
-  //  use: {
-  //   launchOptions: {
-  //     slowMo: 000,
-  //   },
-  // },
-
+  testDir: '.',
   projects: [
+    { name: 'setup', testMatch: '.auth/auth.setup.ts' },
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      testMatch: 'tests/**/*.spec.ts',
+      use: { ...devices['Desktop Chrome'], storageState: '.auth/user.json' },
+      dependencies: ['setup'],
     },
-
     // {
     //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
+    //   testMatch: 'tests/**/*.spec.ts',
+    //   use: { ...devices['Desktop Firefox'], storageState: '.auth/user.json' },
+    //   dependencies: ['setup'],
     // },
-
     // {
     //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
+    //   testMatch: 'tests/**/*.spec.ts',
+    //   use: { ...devices['Desktop Safari'], storageState: '.auth/user.json' },
+    //   dependencies: ['setup'],
     // },
-
   ],
-
 });

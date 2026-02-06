@@ -6,13 +6,12 @@ test.beforeEach( async ({ page }) => {
       body: JSON.stringify(tags)
     })
   })
-
   await page.goto('https://conduit.bondaracademy.com/');
-  await page.getByText('Sign in').click()
-  await page.getByRole('textbox', { name: 'Email'}).fill('pwtest180@test.com')
-  await page.getByRole('textbox', { name: 'Password'}).fill('test1234')
-  await page.getByRole('button').click()
 
+})
+
+test.afterEach(async ({ page }) => {
+  await page.unrouteAll({ behavior: 'ignoreErrors' })
 })
 
 test('has title', async ({ page }) => {
@@ -27,6 +26,7 @@ test('has title', async ({ page }) => {
   })
 
   await page.getByText('Global Feed').click()
+  await page.waitForResponse('**/api/articles*')
   await expect(page.locator('.navbar-brand')).toHaveText('conduit');
   await expect(page.locator('app-article-list h1').first()).toContainText('This is a MOCK test title')
   await expect(page.locator('app-article-list p').first()).toContainText('this is a MOCK test description')
@@ -59,7 +59,7 @@ test('delete article', async ({page ,request}) => {
 
 })
 
-test.only('create article', async ({page, request}) => {
+test('create article', async ({page, request}) => {
   await page.getByText('New Article').click()
   await page.getByRole('textbox', { name: 'Article Title'}).fill('playwright is awesome')
   await page.getByRole('textbox', { name: 'What\'s this article about?'}).fill('about the playwright')
