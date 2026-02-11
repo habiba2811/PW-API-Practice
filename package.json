@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
    "test:api": "npx playwright test workingWithAPI.spec.ts --headed",
-   "test:like": "npx playwright test likesCounter.spec.ts --headed"
+   "test:like": "npx playwright test likesCounter.spec.ts --headed",
+   "test:GlobalLike": "npx playwright test likesCounterGlobal.spec.ts --headed"
 
   },
   "keywords": [],
