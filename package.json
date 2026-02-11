@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-   "test:api": "npx playwright test workingWithAPI.spec.ts --headed"
+   "test:api": "npx playwright test workingWithAPI.spec.ts --headed",
+   "test:like": "npx playwright test likesCounter.spec.ts --headed"
+
   },
   "keywords": [],
   "author": "",
